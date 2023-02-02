@@ -2,7 +2,7 @@ package contaBanco;
 
 import java.util.Scanner;
 public class Banco {
-    //ATRIBUTOS
+   
     public int numConta;
     protected String tipo;
     private String dono;
@@ -11,9 +11,6 @@ public class Banco {
     private float chequeEspecial;
 
    
-   
-    
-   //METODOS PERSONALIZADOS
     public void estadoAtual(){
         System.out.println("-------------------------------------------------");
         System.out.println("Conta: " + this.getNumConta());
@@ -31,11 +28,11 @@ public class Banco {
         if (t=="CC") {
             this.setSaldo(50);
             this.setChequeEspecial(500);
-            System.out.println("Bonificação de R$50,00 pela abertura de Conta Corrente.");
+            System.out.println("BonificaÃ§Ã£o de R$50,00 pela abertura de Conta Corrente.");
             
         } else if(t=="CP"){
             this.setSaldo(150);
-            System.out.println("Bonificação de R$150,00 pela abertura de Conta Poupança.");
+            System.out.println("BonificaÃ§Ã£o de R$150,00 pela abertura de Conta PoupanÃ§a.");
         }
         System.out.println("Conta aberta com sucesso!");
     }
@@ -45,7 +42,7 @@ public class Banco {
             System.out.println("Retire o saldo!");
             
         } else if(this.getSaldo()<0){
-            System.out.println("Conta com débitos, favor regularizar antes de encerra sua conta");
+            System.out.println("Conta com dÃ©bitos, favor regularizar antes de encerra sua conta");
         } else {
             this.setStatus(false);
             System.out.println("Conta fechada com sucesso!");
@@ -55,7 +52,7 @@ public class Banco {
     public void depositar(float v){
         if (this.getStatus()) {
             this.setSaldo(this.getSaldo() + v);
-            System.out.println("Depósito realizado com sucesso na conta de " + this.getDono());
+            System.out.println("DepÃ³sito realizado com sucesso na conta de " + this.getDono());
         } else {
             System.out.println("Conta inesistente!");
         }
@@ -69,9 +66,9 @@ public class Banco {
                 System.out.println("Saque realizado com sucesso na conta de " + this.getDono());
             } else if (this.tipo == "CC"){
             
-                System.out.println("Saque não autorizado");
+                System.out.println("Saque nÃ£o autorizado");
                 System.out.println("Deseja usar o chegue especial?");
-                System.out.println("Digite uma opção: 1) SIM e 2) NÃO");
+                System.out.println("Digite uma opÃ§Ã£o: 1) SIM e 2) NÃƒO");
                 Scanner tecaldo = new Scanner(System.in);
                 int opcao = tecaldo.nextInt();
                 switch(opcao){
@@ -86,7 +83,7 @@ public class Banco {
                         System.out.println("Saque efetuado com sucesso.");
                         break;
                     case 2:
-                        System.out.println("Encerrando operação.");
+                        System.out.println("Encerrando operaÃ§Ã£o.");
                         break;
                         
                 }
@@ -96,7 +93,7 @@ public class Banco {
                      
             }
         } else{ 
-                System.out.println("Impossível sacar"); 
+                System.out.println("ImpossÃ­vel sacar"); 
         }
               
         }
@@ -113,12 +110,12 @@ public class Banco {
             this.setSaldo(this.getSaldo()-v);
             System.out.println("Mensalidade paga");
         }else{
-            System.out.println("Impossível pagar uma conta fechada!");
+            System.out.println("ImpossÃ­vel pagar uma conta fechada!");
         }
         
     }
     
-    //METODOS ESPECIAIS
+   
     
     public Banco(){
        this.setSaldo(0);
