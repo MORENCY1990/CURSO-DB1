@@ -1,0 +1,47 @@
+package PageObjects.Frames;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import Framework.Browser.JavaScriptExecutor;
+import Framework.Browser.Waits;
+
+public class FramePage {
+	private WebDriver driver;
+	private Waits wait;
+	private JavaScriptExecutor js = new JavaScriptExecutor();
+	
+	public FramePage(WebDriver driver) {
+		this.driver = driver;
+		wait = new Waits(this.driver);
+	}
+	
+	public WebElement getTopFrame() {
+		driver.switchTo().frame("top");
+		WebElement getFramePageTitle = wait.visibilityOfElement(By.xpath("//body/div[@class='page-body']/h1"));
+		js.highLight(driver, getFramePageTitle);
+		return getFramePageTitle;
+	}
+	
+	public WebElement getLeftFrame() {
+		driver.switchTo().frame("left");
+		WebElement getLeftFrame = wait.visibilityOfElement(By.id("left1"));
+		js.highLight(driver, getLeftFrame);
+		return getLeftFrame;
+	}
+	
+	public WebElement getMiddleFrame() {
+		driver.switchTo().frame("middle");
+		WebElement getMiddleFrame = wait.visibilityOfElement(By.id("middle1"));
+		js.highLight(driver, getMiddleFrame);
+		return getMiddleFrame;
+	}
+	
+	public WebElement getRightFrame() {
+		driver.switchTo().frame("right");
+		WebElement getRightFrame = wait.visibilityOfElement(By.id("right0"));
+		js.highLight(driver, getRightFrame);
+		return getRightFrame;
+	}
+}
